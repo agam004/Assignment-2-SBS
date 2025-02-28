@@ -1,0 +1,33 @@
+<%- include('header') %>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Add New Item into Inventory</h2>
+    
+    <div class="card p-4 shadow-sm">
+        <form action="/add" method="POST">
+            <div class="mb-3">
+                <label class="form-label">Item Name</label>
+                <input type="text" name="name" class="form-control" placeholder="Enter item name" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Quantity</label>
+                <input type="number" name="quantity" class="form-control" placeholder="Enter quantity" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Price</label>
+                <input type="number" step="0.01" name="price" class="form-control" placeholder="Enter price" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Description</label>
+                <textarea name="description" class="form-control" rows="3" placeholder="Enter description (optional)"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-success w-100">Add Item</button>
+        </form>
+    </div>
+</div>
+
+<%- include('footer') %>
