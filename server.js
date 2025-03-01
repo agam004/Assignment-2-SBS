@@ -2,7 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const { sequelize } = require('./models/Inventory');
 const inventoryRoutes = require('./routes/Inventory');
+const salesRoutes = require('./routes/sales');
+const ledgerRoutes = require('./routes/ledger');
 const path = require('path');
+
 require('dotenv').config();
 //All importing Stuff
 
@@ -15,6 +18,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //using body parser to parse the incoming request body
 
 app.use('/', inventoryRoutes);
+app.use('/sales', salesRoutes);
+app.use('/ledger', ledgerRoutes);
 //using the defined inventory Routes in file routes/Inventory.js
 
 sequelize.authenticate().then(() => {
@@ -25,3 +30,11 @@ sequelize.authenticate().then(() => {
     catch(err){
         console.log('Error while starting server:', err);}
 }).catch(err => console.error('DB Connection Error:', err));
+
+// Catch-all error handler
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(err.status || 500);
+    res.render('error', { error: err });
+  });
+  

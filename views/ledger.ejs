@@ -1,0 +1,47 @@
+<%- include('header') %>
+
+<div class="container mt-5">
+  <h2 class="text-center">Ledger Report</h2>
+  <table class="table table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th>Description</th>
+        <th>Debit</th>
+        <th>Credit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% ledger.forEach(entry => { %>
+        <tr>
+          <td><%= entry.description %></td>
+          <td>$<%= entry.debit.toFixed(2) %></td>
+          <td>$<%= entry.credit.toFixed(2) %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+
+<div class="container mt-5">
+  <h2 class="text-center">Current Stock</h2>
+  <table class="table table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th>Item Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% inventoryItems.forEach(item => { %>
+        <tr>
+          <td><%= item.name %></td>
+          <td><%= item.quantity %></td>
+          <td>$<%= item.price.toFixed(2) %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+
+<%- include('footer') %>

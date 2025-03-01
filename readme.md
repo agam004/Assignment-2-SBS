@@ -2,18 +2,27 @@
 
 
 ## Git Repository For This File: 
-https://github.com/agam004/Assignment_1_SBS
+https://github.com/agam004/Assignment-2-SBS
 
 ## Overview
 This is a simple **Inventory Management System** built using **Node.js, Express, Sequelize, and PostgreSQL** (hosted on Neon.tech). The system provides an easy way to manage inventory items with basic CRUD operations.
+
+## New Features (Assignment 2)
+- **Sales Page:** Lists all sales transactions with detailed item information.
+- **Sell Item Page:** Provides a form to process sales of inventory items.
+- **Inventory Update:** Automatically reduces stock when a sale is made, with validation to prevent negative stock.
+- **Total Revenue Calculation:** Displays the total revenue generated from all sales.
+- **Basic Ledger Report:** Tracks transactions as debits (inventory additions) and credits (sales), including Table for remaining stock.
 
 ## Features
 ✅ View all inventory items  
 ✅ Add new inventory items  
 ✅ Edit existing inventory items  
 ✅ Delete inventory items  
+✅ Sales transaction processing and inventory updates  
+✅ Total revenue and ledger calculations  
 ✅ Data validation and error handling  
-✅ Styled with Bootstrap for a professional look  
+✅ Professional styling using Bootstrap  
 
 ## Tech Stack
 - **Backend:** Node.js, Express, Sequelize  
@@ -49,7 +58,13 @@ This is a simple **Inventory Management System** built using **Node.js, Express,
 #### Negative Quantity: Changed to 0 if negative.
 #### Invalid Price Format: Ensures the price is a valid number.
 #### Duplicate Entries: Prevents adding identical items.
+#### Insufficient Stock: Prevents processing a sale if available stock is less than the requested quantity.
 
+# Sales and Ledger Functionality
+## Sales Transactions: Records include quantity sold, price per item, total sale amount, and sale date.
+## Ledger Report: Aggregates debit entries (inventory additions) and credit entries (sales), along with:
+## Modified Stock: The number of items changed in the transaction.
+## Remaining Stock: The current inventory level after the transaction.
 ## 
 👤 Guragampreet Singh
 🎓 Student Number: 8913870

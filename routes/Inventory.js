@@ -29,9 +29,12 @@ router.get('/edit/:id', async (req, res) => {
 //post edit route after user submits
 router.post('/edit/:id', async (req, res) => {
     const { name, quantity, price, description } = req.body;
-    await Inventory.update({ name, quantity, price, description }, { where: { id: req.params.id } });
+    await Inventory.update(
+      { name, quantity, price, description },
+      { where: { id: req.params.id } }
+    );
     res.redirect('/');
-});
+  });
 
 // delete route
 router.post('/delete/:id', async (req, res) => {

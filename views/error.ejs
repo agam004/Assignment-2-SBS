@@ -1,0 +1,12 @@
+<!-- views/error.ejs -->
+<%- include('header') %>
+
+<div class="container mt-5">
+  <h2 class="text-center text-danger">Error <%= error.status || 500 %></h2>
+  <p class="text-center font fs-1"><%= error.message %></p>
+  <div class="text-center">
+    <a href="/" class="btn btn-primary">Go Home</a>
+  </div>
+</div>
+
+<%- include('footer') %>

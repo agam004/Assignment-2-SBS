@@ -1,0 +1,29 @@
+<%- include('header') %>
+
+<div class="container mt-5">
+  <h2 class="text-center">Sales Transactions</h2>
+  <p class="lead text-center">Total Revenue: <strong>$<%= totalRevenue.toFixed(2) %></strong></p>
+
+  <table class="table table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>Item</th>
+        <th>Quantity Sold</th>
+        <th>Sale Amount</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% sales.forEach(sale => { %>
+        <tr>
+          <td><%= sale.Inventory.name %></td>
+          <td><%= sale.quantitySold %></td>
+          <td>$<%= sale.totalSaleAmount.toFixed(2) %></td>
+          <td><%= sale.saleDate.toDateString() %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+
+<%- include('footer') %>
